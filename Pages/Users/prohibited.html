@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Scripts/Styles/Users/prohibited.css">
+    <title>Prohibited - Networked Mind</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="menuchats">
+                <img src="../../Images/Avatares/I.jpg" alt="">
+                <hr>
+                <div class="icon-wrapper">
+                    <ion-icon name="chatbox-ellipses-outline" class="active"></ion-icon>
+                    <span class="tooltip">Chat's</span>
+                </div>
+                <div class="icon-wrapper">
+                    <ion-icon name="people-outline"></ion-icon>
+                    <span class="tooltip">Groups</span>
+                </div>
+            </div>
+
+            <div class="config">
+                <div class="icon-wrapper">
+                    <ion-icon name="cog-outline"></ion-icon>
+                    <span class="tooltip">Settings</span>
+                </div>
+            </div>
+        </nav>
+        <main class="messages">
+            <div class="seek">
+                <div class="search">
+                    <div class="input-wrapper">
+                        <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+                        <div class="separator"></div>
+
+                        <input type="text" placeholder="Search in your inbox">
+                    </div>
+                </div>
+            </div>
+
+            <div class="people">
+                <div class="messageandgroup active">
+                    <div class="user">
+                        <img src="../../Images/Avatares/01.jpg"
+                            alt="">
+                        <div class="user-details">
+                            <h5>
+                                <span class="name">Donald</span>
+                                <span class="time">19:05</span>
+                            </h5>
+                            <p class="message-text">Okay, fine, we have to schedule something, we miss you</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="messageandgroup">
+                    <div class="user">
+                        <img src="../../Images/Avatares/02.jpg"
+                            alt="">
+                        <div class="user-details">
+                            <h5>
+                                <span class="name">Unknown user</span>
+                                <span class="time">15:27</span>
+                            </h5>
+                            <p class="message-text">The meeting will start at 5pm on the 5th.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="messageandgroup">
+                    <div class="user">
+                        <img src="../../Images/Avatares/03.jpg"
+                            alt="">
+                        <div class="user-details">
+                            <h5>
+                                <span class="name">Joao</span>
+                                <span class="time">10:15</span>
+                            </h5>
+                            <p class="message-text">The roads are full of snow, I won't be able to go to work...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="messageandgroup">
+                    <div class="user">
+                        <img src="../../Images/Avatares/04.jpg"
+                            alt="">
+                        <div class="user-details">
+                            <h5>
+                                <span class="name">Hana</span>
+                                <span class="time">00:00</span>
+                            </h5>
+                            <p class="message-text">The documents are in room A1 on the table.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="messageandgroup">
+                    <div class="user">
+                        <img src="../../Images/Avatares/05.jpg"
+                            alt="">
+                        <div class="user-details">
+                            <h5>
+                                <span class="name">Thomas</span>
+                                <span class="time">09:18</span>
+                            </h5>
+                            <p class="message-text">Today we're going to the bar, do you want to come?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="messageandgroup">
+                    <div class="user">
+                        <img src="../../Images/Avatares/06.jpg"
+                            alt="">
+                        <div class="user-details">
+                            <h5>
+                                <span class="name">Liz</span>
+                                <span class="time">07:28</span>
+                            </h5>
+                            <p class="message-text">Do you want to go to lunch with me today?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </header>
+
+
+
+    <main class="content">
+        <div class="yesmsg">
+            <div class="chat-info">
+                <div class="user">
+                    <img src="../../Images/Avatares/01.jpg"
+                        alt="">
+                    <div class="user-details">
+                        <h5><span class="name">Donald</span></h5>
+                        <p class="status">Active Now</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message received">
+                    <p class="text">Hello brothe</p>
+                </div>
+                <div class="message received">
+                    <p class="text">Did Tomás ask you to come to the bar?</p>
+                </div>
+                <div class="message sent">
+                    <p class="text">Hi Donald</p>
+                </div>
+                <div class="message sent">
+                    <p class="text">Yes he called me, but I don't think I'll be able to make it, I'm really busy.</p>
+                </div>
+                <div class="message received">
+                    <p class="text">Okay, fine, we have to schedule something, we miss you</p>
+                </div>
+            </div>
+
+            <div class="message-input">
+                <input type="text" id="messageText" placeholder="Type a message..." />
+                <ion-icon name="paper-plane-outline" id="sendMessage"></ion-icon>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        const peopleDiv = document.querySelector('header main.messages div.people');
+
+        peopleDiv.addEventListener('scroll', () => {
+            const scrollHeight = peopleDiv.scrollHeight - peopleDiv.clientHeight;
+            const scrollPosition = peopleDiv.scrollTop;
+
+            if (scrollPosition === 0) {
+                peopleDiv.classList.add('top-scroll');
+                peopleDiv.classList.remove('bottom-scroll', 'middle-scroll');
+            }
+            else if (scrollPosition >= scrollHeight - 1) {
+                peopleDiv.classList.add('bottom-scroll');
+                peopleDiv.classList.remove('top-scroll', 'middle-scroll');
+            }
+            else {
+                peopleDiv.classList.add('middle-scroll');
+                peopleDiv.classList.remove('top-scroll', 'bottom-scroll');
+            }
+        });
+
+    </script>
+
+
+    <!--Icons-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!--icons: https://ionic.io/ionicons -->
+</body>
+
+</html>

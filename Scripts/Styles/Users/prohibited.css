@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --menus: #151824;
+    --background: #192030;
+    --ice: #fffafa;
+
+    --linear: linear-gradient(347deg, #FF965D, #9826B5);
+    --receive: linear-gradient(180deg, #F9944E, #FD4956);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--background);
+}
+
+header {
+    width: 35%;
+    background-color: var(--menus);
+    display: flex;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.75) 4px 0px 20px 0px;
+}
+
+header nav {
+    height: 100%;
+    width: 17%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--menus);
+    border-right: 1px solid var(--ice);
+}
+
+header nav .menuchats {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+}
+
+header nav div.menuchats img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 5px auto 20px auto;
+
+
+
+    padding: 2px;
+    background: var(--linear);
+}
+
+header nav div.menuchats hr {
+    margin: 0 auto 15px auto;
+    width: 100%;
+    height: 1.5px;
+    background-color: white;
+    border: none;
+}
+
+header nav div.menuchats .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 100px;
+    background-color: var(--ice);
+    color: #000;
+    font-size: 0.8em;
+    text-align: center;
+    border-radius: 90px 45px 45px 90px;
+    padding: 5px;
+    position: absolute;
+    left: 125%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+header nav div.config .icon-wrapper .tooltip {
+    width: 150px;
+    position: absolute;
+    left: 15%;
+    top: 96%;
+}
+
+.icon-wrapper:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
+header nav div.menuchats ion-icon,
+header nav div.config ion-icon {
+    padding: 5px;
+    cursor: pointer;
+    color: #f5f5f5d0;
+    border-radius: 50%;
+    font-size: 1.6em;
+}
+
+
+header nav div.menuchats ion-icon:hover,
+header nav div.config ion-icon:hover {
+    background: var(--linear);
+    color: var(--ice);
+    transition: all .7s;
+}
+
+header nav div.config {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    margin-top: auto;
+}
+
+
+header main.messages {
+    color: white;
+    width: 85%;
+}
+
+header main.messages div.seek {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 14.5%;
+}
+
+header main.messages div.seek div.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    position: relative;
+}
+
+header main.messages div.seek .search .input-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px 15px;
+    width: 80%;
+}
+
+header main.messages div.seek .search .input-wrapper .icon {
+    color: #aaa;
+    margin-right: 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header main.messages div.seek .search .input-wrapper .icon ion-icon {
+    color: #aaa;
+}
+header main.messages div.seek .search .input-wrapper .icon ion-icon:hover {
+    color: var(--ice);
+    cursor: pointer;
+}
+
+header main.messages div.seek .search .input-wrapper .separator {
+    height: 20px;
+    border-left: 1px solid #aaa;
+    margin-right: 10px;
+}
+
+header main.messages div.seek .search .input-wrapper input[type="text"] {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    flex: 1;
+    font-weight: 300;
+}
+
+header main.messages div.seek .search .input-wrapper input[type="text"]::placeholder {
+    color: #aaa;
+    user-select: none;
+}
+
+header main.messages div.people {
+    height: 85.5%;
+    background-color: var(--background);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header main.messages div.people::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+header main.messages div.people::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+header main.messages div.people::-webkit-scrollbar-thumb {
+    background: var(--menus);
+    border-radius: 0 0 10px 10px;
+}
+
+header main.messages div.people.middle-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+header main.messages div.people.top-scroll::-webkit-scrollbar-thumb {
+    border-radius: 0 0 10px 10px;
+}
+
+header main.messages div.people.bottom-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px 10px 0 0;
+}
+
+header main.messages div.people .messageandgroup {
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    min-height: 20%;
+    margin: 10px 0;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.75) 4px 5px 20px 0px;
+    border-radius: 5px;
+}
+
+header main.messages div.people .messageandgroup.active {
+    background: var(--linear);
+}
+
+header main.messages div.people .messageandgroup:hover {
+    cursor: pointer;
+    background: var(--linear);
+}
+
+header main.messages div.people .messageandgroup .user {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+header main.messages div.people .messageandgroup .user img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+header main.messages div.people .messageandgroup .user-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+header main.messages div.people .messageandgroup .user-details h5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+header main.messages div.people .messageandgroup .user-details span.name {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+header main.messages div.people .messageandgroup .user-details span.time {
+    margin: 0 10px;
+    color: var(--cinza-claro);
+    font-size: 12px;
+}
+
+header main.messages div.people .messageandgroup .user-details p.message-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 250px;
+    font-size: 14px;
+}
+
+
+main.content {
+    width: 60%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+}
+
+main.content {
+    width: 65%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+}
+main.content div.yesmsg {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+main.content div.yesmsg div.chat-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 12%;
+    background-color: var(--menus);
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 20px 0px;
+}
+main.content div.yesmsg div.chat-info .user {
+    display: flex;
+    align-items: center;
+}
+
+main.content div.yesmsg div.chat-info .user img {
+    margin: 0 15px 0 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; 
+}
+main.content div.yesmsg div.chat-info .user-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+main.content div.yesmsg div.chat-info .user-details h5 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+main.content div.yesmsg div.chat-info .user-details span.name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+main.content div.yesmsg div.chat-info .user-details p.status {
+    color: rgba(255, 255, 255, 0.655);
+    font-size: 12px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+}
+.message-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--menus);
+}
+
+.message-input input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 300;
+}
+.message-input input[type="text"]::placeholder {
+    color: #aaa;
+    user-select: none;
+}
+
+
+#sendMessage {
+    margin: 0 10px 0 0;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+#sendMessage:hover {
+    color: var(--linear);
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.sent {
+    background: var(--linear);
+    align-self: flex-end;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.message.received {
+    background: var(--receive);
+    align-self: flex-start;
+    text-align: left;
+    margin-left: 10px;
+}
